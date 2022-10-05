@@ -50,7 +50,7 @@ function getRandomFloat(a, b, precision = 1) {
   const resultCheck = checkFunctionArguments(a, b);
 
   // Проверяем числа на типы
-  if (isNaN (resultCheck) || typeof precision !== 'number' || precision < 0) {
+  if (resultCheck === null || typeof precision !== 'number' || precision < 0) {
     return NaN;
   }
 
@@ -75,18 +75,18 @@ function getRandomFloat(a, b, precision = 1) {
 Функция для проверки аргументов в другой функции
  * @param {*} first Предпочтительно положительное число
  * @param {*} second Предпочтительно положительное число
- * @return {number | number []} Возвращает `NaN`, если аргументы не числа или меньше нуля, а так же массив исходных значений по возрастанию
+ * @return {null | number[]} Возвращает `null`, если аргументы не числа или меньше нуля, а так же массив исходных значений по возрастанию
 */
 
 function checkFunctionArguments(first, second) {
   // Проверяем числа на типы
   if (typeof first !== 'number' || typeof second !== 'number') {
-    return NaN;
+    return null;
   }
 
   // Проверяем, что число положительное
   if (first < 0 || second < 0) {
-    return NaN;
+    return null;
   }
 
   // Поддержка передачи чисел в любом порядке, т.е. если b меньше а, то они меняются местами
