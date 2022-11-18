@@ -7,7 +7,6 @@ const AMOUNT_OF_ADS = 10;
  * @typedef {'palace'| 'flat'| 'house'| 'bungalow'| 'hotel'} HousingType
  * @typedef {'wifi' | 'dishwasher' | 'parking' | 'washer' | 'elevator' | 'conditioner'} Feature
  */
-
 const TITLES = [
   'Квартира свободной планировки 174,1 м²',
   'Огромный пентхаус',

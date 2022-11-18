@@ -41,4 +41,4 @@ const initModal = (template, extraCloser) => {
 const showSuccess = () => initModal(successTemplate);
 const showError = () => initModal(errorTemplate, '.error__button');
 
-export {initModal, showSuccess, showError};
+export { initModal, showSuccess, showError };

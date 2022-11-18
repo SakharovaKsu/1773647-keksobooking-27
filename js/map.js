@@ -76,4 +76,4 @@ const setAdPins = (locations) => {
  */
 const setOnMapLoad = (cb) => map.on('load', cb);
 
-export {initMap, setAdPins, setOnMapLoad, createAdPinMarker};
+export { initMap, setAdPins, setOnMapLoad, createAdPinMarker };

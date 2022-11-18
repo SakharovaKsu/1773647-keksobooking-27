@@ -1,23 +1,20 @@
 /**
- * На основе материала {@link https://learn.javascript.ru/task/random-int-min-max| Learn JS}
 @param {number} from Целое положительное число
 @param {number} to Целое положительное число, которое больше предыдущего
 @returns {number} Случайное число в заданном промежутке включительно
 */
-
-export const getRandomInteger = (from, to) => {
+const getRandomInteger = (from, to) => {
   const randomNumber = from + Math.random() * (to + 1 - from);
   return Math.floor(randomNumber);
 };
 
 /**
-Функция для проверки аргументов в другой функции
+ * Функция для проверки аргументов в другой функции
  * @param {*} first Предпочтительно положительное число
  * @param {*} second Предпочтительно положительное число
  * @return {null | number []} Возвращает `null`, если аргументы не числа или меньше нуля, а так же массив исходных значений по возрастанию
 */
-
-export const checkFunctionArguments = (first, second) => {
+const checkFunctionArguments = (first, second) => {
   if (typeof first !== 'number' || typeof second !== 'number') {
     return null;
   }
@@ -30,20 +27,20 @@ export const checkFunctionArguments = (first, second) => {
 };
 
 /**
-Возвращает случайное число в заданом диапазоне, проверяет на типы и что число положительное
+ * Возвращает случайное число в заданом диапазоне, проверяет на типы и что число положительное
  * @param {*} a Предпочтительно положительное число
  * @param {*} b Предпочтительно положительное число
  * @param {number} Случайное целое число в заданном промежутке включительно или `Nan`, если аргументы не подходящие
 */
-export const getRandomIntegerWithChecks = (a, b) => {
+const getRandomIntegerWithChecks = (a, b) => {
   const resultCheck = checkFunctionArguments(a, b);
 
-  // Проверяем, что число положительное
+  /** Проверяем, что число положительное */
   if (resultCheck === null) {
     return NaN;
   }
 
-  // Поддержка передачи чисел в любом порядке, т.е. если b меньше а, то они меняются местами
+  /** Поддержка передачи чисел в любом порядке, т.е. если b меньше а, то они меняются местами */
   [a, b] = resultCheck;
 
   a = Math.ceil(a); // Округление значения в сторону плюс бесконечности
@@ -58,7 +55,7 @@ export const getRandomIntegerWithChecks = (a, b) => {
  * @param {*} [precision=1] Предпочительно положительное число
  * @returns {number} Случайное число с плавающей точкой или `NaN`, если аргументы не подходящие
  */
-export const getRandomFloat = (a, b, precision = 1) => {
+const getRandomFloat = (a, b, precision = 1) => {
   const resultCheck = checkFunctionArguments(a, b);
 
   if (resultCheck === null || typeof precision !== 'number' || precision < 0) {
@@ -77,10 +74,6 @@ export const getRandomFloat = (a, b, precision = 1) => {
   */
   const result = b + Math.random() * (a - b);
 
-  /**
-  * С помощью метода toFixed любого числа в JavaScript указываем требуемое количество знаков после точки.
-  * Метод возвращает строку, поэтому с помощью унарного плюса превращаем её в число
-  */
   return +result.toFixed(precision);
 };
 
@@ -90,4 +83,6 @@ export const getRandomFloat = (a, b, precision = 1) => {
  * @param {Type[]} elements
  * @returns {Type} случайный элемент из переданного массива
  */
-export const getRandomArrayItem = (elements) => elements[getRandomInteger(0, elements.length - 1)];
+const getRandomArrayItem = (elements) => elements[getRandomInteger(0, elements.length - 1)];
+
+export { getRandomInteger, checkFunctionArguments, getRandomIntegerWithChecks, getRandomFloat, getRandomArrayItem };
