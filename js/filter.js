@@ -97,6 +97,11 @@ const getFilterHandler = (allLocations) => () => {
   setAdPins(filteredLocations);
 };
 
+const blockFilter = () => {
+  [filterForm].forEach((form) => {
+    form.classList.add('map__filters--disabled');});
+};
+
 const initFilter = (allLocations) => {
   setAdPins(allLocations);
   const debouncedInputFilter = debounce(getFilterHandler(allLocations), RERENDER_DELAY);
@@ -106,4 +111,4 @@ const initFilter = (allLocations) => {
 
 const resetFilters = () => filterForm.reset();
 
-export { initFilter, resetFilters };
+export { initFilter, resetFilters, filterForm, blockFilter};

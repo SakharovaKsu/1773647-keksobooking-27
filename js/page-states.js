@@ -1,5 +1,6 @@
+import { filterForm } from './filter.js';
+
 const adForm = document.querySelector('.ad-form');
-const filtersForm = document.querySelector('.map__filters');
 const DISABLED_CLASSES = ['ad-form--disabled', 'map__filters--disabled'];
 
 /**
@@ -17,12 +18,12 @@ const disableElementForm = (tag, form, isDisable = true) => {
 };
 
 const switchAdFormState = (isDisable = true) => {
-  [adForm, filtersForm].forEach((form, index) => {
+  [adForm, filterForm].forEach((form, index) => {
     form.classList.toggle(DISABLED_CLASSES[index], isDisable);
     disableElementForm('fieldset', form, isDisable);
   });
 
-  disableElementForm('select', filtersForm, isDisable);
+  disableElementForm('select', filterForm, isDisable);
 };
 
 export{ switchAdFormState };
